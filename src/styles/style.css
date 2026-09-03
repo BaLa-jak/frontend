@@ -67,3 +67,45 @@ button, input { font: inherit; }
 @media (max-width: 540px) {
   .search-row { flex-direction: column; }
 }
+
+.gif-card button,
+.gif-detail button {
+  padding: .65rem 1rem;
+  border: 1px solid #333;
+  background: #fff;
+  color: #181818;
+  cursor: pointer;
+}
+
+.gif-card button:hover,
+.gif-detail button:hover {
+  background: #181818;
+  color: #fff;
+}
+
+.gif-detail-container {
+  margin-top: 1.5rem;
+}
+
+.gif-detail-container:empty {
+  display: none;
+}
+
+.gif-detail {
+  padding: 1rem;
+  border: 1px solid #bdbdbd;
+  border-radius: .5rem;
+  background: #fff;
+}
+
+.gif-detail img {
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+  margin: 1rem 0;
+}
+
+.status--empty,
+.status--error {
+  font-weight: 700;
+}
