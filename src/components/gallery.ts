@@ -1,12 +1,13 @@
 import type { Gif } from "../models/gif.interface";
+import { escapeHtml } from "../utils/html";
 
 function createGifCard(gif: Gif): string {
   const {
     id,
     title,
     url,
+    altText = title,
     username = "Autor no disponible",
-    tags,
     rating,
   } = gif;
 
@@ -14,18 +15,15 @@ function createGifCard(gif: Gif): string {
     <article class="gif-card">
       <img
         src="${url}"
-        alt="${title}"
+        alt="${escapeHtml(altText)}"
         loading="lazy"
       />
 
       <div class="gif-card__content">
-        <h2>${title}</h2>
+        <h2>${escapeHtml(title)}</h2>
         <p>
-          ${username} - Clasificación
+          ${escapeHtml(username)} - Clasificación
           ${rating.toUpperCase()}
-        </p>
-        <p class="tags">
-          ${tags.map((tag) => `#${tag}`).join(" ")}
         </p>
         <button
           type="button"
@@ -42,5 +40,7 @@ export function renderGallery(
   collection: Gif[],
   container: HTMLElement,
 ): void {
-  container.innerHTML = collection.map(createGifCard).join("");
+  container.innerHTML = collection
+    .map(createGifCard)
+    .join("");
 }

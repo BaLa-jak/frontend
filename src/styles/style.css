@@ -154,3 +154,28 @@ input {
 .status--error {
   font-weight: 700;
 }
+
+.status--loading {
+  font-weight: 700;
+}
+
+.status--error {
+  color: #7a1212;
+  font-weight: 700;
+}
+
+.giphy-attribution {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.giphy-attribution a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.giphy-attribution img {
+  display: inline-block;
+  width: min(180px, 100%);
+  height: auto;
+}
