@@ -1,22 +1,16 @@
-import './styles/style.css';
+import "./styles/style.css";
 
-import { gifs } from './data/gifs';
-import {
-  clearGifDetail,
-  renderGifDetail,
-} from './components/gif-detail';
-import { renderGallery } from './components/gallery';
-import { renderStatus } from './components/status';
-import { RequestStatus } from './models/request-status.enum';
-import {
-  findGifById,
-  searchGifs,
-} from './services/gif.service';
+import { gifs } from "./data/gifs";
+import { clearGifDetail, renderGifDetail } from "./components/gif-detail";
+import { renderGallery } from "./components/gallery";
+import { renderStatus } from "./components/status";
+import { RequestStatus } from "./models/request-status.enum";
+import { findGifById, searchGifs } from "./services/gif.service";
 
-const app = document.querySelector<HTMLDivElement>('#app');
+const app = document.querySelector<HTMLDivElement>("#app");
 
 if (!app) {
-  throw new Error('No se encontró el elemento #app.');
+  throw new Error("No se encontró el elemento #app.");
 }
 
 app.innerHTML = `
@@ -67,16 +61,11 @@ app.innerHTML = `
   </main>
 `;
 
-const form =
-  document.querySelector<HTMLFormElement>('#search-form');
-const input =
-  document.querySelector<HTMLInputElement>('#search-input');
-const gallery =
-  document.querySelector<HTMLElement>('#gif-gallery');
-const status =
-  document.querySelector<HTMLParagraphElement>('#search-status');
-const detailContainer =
-  document.querySelector<HTMLElement>('#gif-detail');
+const form = document.querySelector<HTMLFormElement>("#search-form");
+const input = document.querySelector<HTMLInputElement>("#search-input");
+const gallery = document.querySelector<HTMLElement>("#gif-gallery");
+const status = document.querySelector<HTMLParagraphElement>("#search-status");
+const detailContainer = document.querySelector<HTMLElement>("#gif-detail");
 
 if (
   !form ||
@@ -85,10 +74,10 @@ if (
   !status ||
   !detailContainer
 ) {
-  throw new Error('No se pudo inicializar la interfaz.');
+  throw new Error("No se pudo inicializar la interfaz.");
 }
 
-form.addEventListener('submit', (event: SubmitEvent) => {
+form.addEventListener("submit", (event: SubmitEvent) => {
   event.preventDefault();
 
   renderStatus(RequestStatus.Loading, status);
@@ -106,8 +95,8 @@ form.addEventListener('submit', (event: SubmitEvent) => {
   renderStatus(RequestStatus.Success, status, results.length);
 });
 
-input.addEventListener('input', () => {
-  if (input.value.trim() !== '') {
+input.addEventListener("input", () => {
+  if (input.value.trim() !== "") {
     return;
   }
   renderGallery(gifs, gallery);
@@ -115,7 +104,7 @@ input.addEventListener('input', () => {
   renderStatus(RequestStatus.Initial, status, gifs.length);
 });
 
-gallery.addEventListener('click', (event) => {
+gallery.addEventListener("click", (event) => {
   const target = event.target;
 
   if (!(target instanceof Element)) {
@@ -123,7 +112,7 @@ gallery.addEventListener('click', (event) => {
   }
 
   const detailButton = target.closest<HTMLButtonElement>(
-    '[data-gif-id]',
+    "[data-gif-id]",
   );
 
   if (!detailButton) {
@@ -147,7 +136,7 @@ gallery.addEventListener('click', (event) => {
   renderGifDetail(selectedGif, detailContainer);
 });
 
-detailContainer.addEventListener('click', (event) => {
+detailContainer.addEventListener("click", (event) => {
   const target = event.target;
 
   if (!(target instanceof Element)) {

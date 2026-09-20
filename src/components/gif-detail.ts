@@ -1,4 +1,4 @@
-import type { Gif } from '../models/gif.interface';
+import type { Gif } from "../models/gif.interface";
 
 export function renderGifDetail(
   gif: Gif,
@@ -8,19 +8,19 @@ export function renderGifDetail(
     id,
     title,
     url,
-    username = 'Autor no disponible',
+    username = "Autor no disponible",
     rating,
     tags,
   } = gif;
 
   const [
-    mainTag = 'Sin etiqueta',
+    mainTag = "Sin etiqueta",
     ...secondaryTags
   ] = tags;
 
   const relatedTags = secondaryTags.length > 0
-    ? secondaryTags.join(', ')
-    : 'Ninguna';
+    ? secondaryTags.join(", ")
+    : "Ninguna";
 
   container.innerHTML = `
     <article class="gif-detail">

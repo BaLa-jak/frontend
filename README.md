@@ -24,8 +24,8 @@ pnpm build
 
 ## Estado del proyecto
 
-EC1 F1 A2 completada. Los datos aún son locales;
-la integración con Giphy API se realizará después.
+EC1 F1 A2 completada. Los datos aún son locales; la integración con Giphy API se
+realizará después.
 
 ## Funcionalidad EC1 F2 A3
 
@@ -37,8 +37,8 @@ El proyecto fue refactorizado en módulos para separar:
 - componentes de interfaz;
 - funciones auxiliares.
 
-La aplicación permite buscar GIFs, consultar su detalle,
-cerrar el detalle y comunicar los estados de la interfaz.
+La aplicación permite buscar GIFs, consultar su detalle, cerrar el detalle y
+comunicar los estados de la interfaz.
 
 ## Verificación
 

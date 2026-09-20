@@ -1,11 +1,11 @@
-import type { Gif } from '../models/gif.interface';
+import type { Gif } from "../models/gif.interface";
 
 function createGifCard(gif: Gif): string {
   const {
     id,
     title,
     url,
-    username = 'Autor no disponible',
+    username = "Autor no disponible",
     tags,
     rating,
   } = gif;
@@ -25,7 +25,7 @@ function createGifCard(gif: Gif): string {
           ${rating.toUpperCase()}
         </p>
         <p class="tags">
-          ${tags.map((tag) => `#${tag}`).join(' ')}
+          ${tags.map((tag) => `#${tag}`).join(" ")}
         </p>
         <button
           type="button"
@@ -42,5 +42,5 @@ export function renderGallery(
   collection: Gif[],
   container: HTMLElement,
 ): void {
-  container.innerHTML = collection.map(createGifCard).join('');
+  container.innerHTML = collection.map(createGifCard).join("");
 }

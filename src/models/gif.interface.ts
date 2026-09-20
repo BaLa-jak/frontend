@@ -1,4 +1,4 @@
-export type GifRating = 'g' | 'pg' | 'pg-13';
+export type GifRating = "g" | "pg" | "pg-13";
 
 export interface Gif {
   id: string;

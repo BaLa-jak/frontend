@@ -1,12 +1,12 @@
-import type { Gif } from '../models/gif.interface';
-import { normalizeText } from '../utils/text';
+import type { Gif } from "../models/gif.interface";
+import { normalizeText } from "../utils/text";
 
 function matchesQuery(gif: Gif, query: string): boolean {
   const searchableText = [
     gif.title,
-    gif.username ?? '',
+    gif.username ?? "",
     ...gif.tags,
-  ].join(' ');
+  ].join(" ");
 
   return normalizeText(searchableText).includes(query);
 }
